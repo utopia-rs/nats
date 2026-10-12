@@ -1,0 +1,31 @@
+[package]
+name = "utopia-nats"
+description = "A NATS client: publish, subscribe, request-reply and batched requests over TCP, TLS and WebSockets, with JetStream streams and consumers, a key-value store, an object store and NATS micro services."
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+license = "BSD-3-Clause"
+
+[dependencies]
+async-trait = "0.1"
+base64 = "0.22"
+bytes = "1"
+futures-util = { version = "0.3", default-features = false, features = ["std", "async-await-macro"] }
+indexmap = "2"
+php-std = { version = "0.1.0", git = "https://github.com/utopia-rs/php-std" }
+rand = { version = "0.10", default-features = false, features = ["thread_rng"] }
+ring = "0.17"
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12"] }
+serde_json = { version = "1", features = ["raw_value", "preserve_order", "float_roundtrip"] }
+sha1 = "0.10"
+sha2 = "0.10"
+thiserror = "2"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "time", "sync", "signal", "io-util", "fs"] }
+tokio-rustls = { version = "0.26", default-features = false, features = ["ring", "tls12"] }
+webpki-roots = "1"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "time", "sync", "signal", "rt", "io-util"] }
+
+[package.metadata.utopia]
+php-sync = "809d2819d7da00d8b2f486e3bcb4c98a5265e950"
